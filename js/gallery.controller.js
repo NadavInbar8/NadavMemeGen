@@ -7,7 +7,7 @@ function onGalleryInit() {
 function renderGallery() {
   var elGallery = document.querySelector('.gallery');
   var strHTML = '';
-  for (var i = 1; i < 19; i++) {
+  for (var i = 1; i < gImgs.length; i++) {
     strHTML += ` <div class="img img${i}"><img onclick="onImgSelect(${i})" src="./meme-imgs/${i}.jpg" alt=""/></div>`;
   }
   elGallery.innerHTML = strHTML;
