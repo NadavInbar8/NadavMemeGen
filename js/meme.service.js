@@ -4,33 +4,115 @@
 
 ////////// Variables ///////
 
-var gCurLine = 0;
-
 var gImgs = [
-  { id: 1, url: 'img/1.jpg', keywords: ['funny', 'cat'] },
-  { id: 2, url: 'img/2.jpg', keywords: ['funny', 'cat'] },
-  { id: 3, url: 'img/3.jpg', keywords: ['funny', 'cat'] },
-  { id: 4, url: 'img/4.jpg', keywords: ['funny', 'cat'] },
-  { id: 5, url: 'img/5.jpg', keywords: ['funny', 'cat'] },
+  {
+    id: 1,
+    url: 'imgs/meme-imgs/1.jpg',
+    keywords: ['funny', 'awkward', 'celeb'],
+  },
+  { id: 2, url: 'imgs/meme-imgs/2.jpg', keywords: ['animal', 'happy', 'love'] },
+  { id: 3, url: 'imgs/meme-imgs/3.jpg', keywords: ['baby', 'animal', 'sleep'] },
+  {
+    id: 4,
+    url: 'imgs/meme-imgs/4.jpg',
+    keywords: ['animal', 'sleep', 'funny'],
+  },
+  {
+    id: 5,
+    url: 'imgs/meme-imgs/5.jpg',
+    keywords: ['success', 'baby', 'funny'],
+  },
+  { id: 6, url: 'imgs/meme-imgs/6.jpg', keywords: ['funny', 'celeb', 'shock'] },
+  { id: 7, url: 'imgs/meme-imgs/7.jpg', keywords: ['funny', 'baby', 'shock'] },
+  {
+    id: 8,
+    url: 'imgs/meme-imgs/8.jpg',
+    keywords: ['shock', 'celeb', 'awkward'],
+  },
+  {
+    id: 9,
+    url: 'imgs/meme-imgs/9.jpg',
+    keywords: ['baby', 'funny', 'success'],
+  },
+  {
+    id: 10,
+    url: 'imgs/meme-imgs/10.jpg',
+    keywords: ['celeb', 'funny', 'happy'],
+  },
+  {
+    id: 11,
+    url: 'imgs/meme-imgs/11.jpg',
+    keywords: ['awkward', 'celeb', 'funny'],
+  },
+  { id: 12, url: 'imgs/meme-imgs/12.jpg', keywords: ['shock', 'celeb', 'mad'] },
+  {
+    id: 13,
+    url: 'imgs/meme-imgs/13.jpg',
+    keywords: ['success', 'celeb', 'happy'],
+  },
+  { id: 14, url: 'imgs/meme-imgs/14.jpg', keywords: ['shock', 'celeb', 'mad'] },
+  {
+    id: 15,
+    url: 'imgs/meme-imgs/15.jpg',
+    keywords: ['awkward', 'celeb', 'shock'],
+  },
+  {
+    id: 16,
+    url: 'imgs/meme-imgs/16.jpg',
+    keywords: ['funny', 'shock', 'awkward'],
+  },
+  {
+    id: 17,
+    url: 'imgs/meme-imgs/17.jpg',
+    keywords: ['celeb', 'mad', 'success'],
+  },
+  {
+    id: 18,
+    url: 'imgs/meme-imgs/18.jpg',
+    keywords: ['shock', 'success', 'scared'],
+  },
 ];
-
-var gMeme = {
-  selectedImgId: 1,
-  selectedLineIdx: 0,
-  lines: [
-    {
-      txt: 'placeholder',
-      size: 50,
-      align: 'center',
-      color: 'white',
-      x: 225,
-      y: 50,
-      isFocused: true,
-    },
-  ],
-};
+var gCountImgId = 1;
+var gMemes = [];
+createMemes();
+var gMeme = {};
 
 ///// Functions //////
+
+function getCurrMemeId(imgId) {
+  setCurrMeme(imgId);
+}
+
+function setCurrMeme(id) {
+  gMeme = gMemes[id];
+}
+
+function createMemes() {
+  for (let i = 0; i < gImgs.length; i++) {
+    gMemes.push(createMeme());
+  }
+}
+
+function createMeme() {
+  var meme = {
+    selectedImgId: gCountImgId,
+    selectedLineIdx: 0,
+    lines: [
+      {
+        txt: 'placeholder',
+        size: 50,
+        align: 'center',
+        color: 'white',
+        x: 225,
+        y: 50,
+        isFocused: true,
+      },
+    ],
+  };
+
+  gCountImgId++;
+  return meme;
+}
 
 function getMeme() {
   return gMeme;

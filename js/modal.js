@@ -4,16 +4,18 @@ const modal = document.querySelector('.modal');
 const overlay = document.querySelector('.overlay');
 const btnCloseModal = document.querySelector('.close-modal');
 const btnOpenModal = document.querySelectorAll('.show-modal');
+const body = document.querySelector('body');
 
 //open and close modal functions
 const openModal = () => {
   modal.classList.remove('hidden');
   overlay.classList.remove('hidden');
+  body.classList.add('noOverflow');
 };
 const closeModal = () => {
-  clearCanvas();
   modal.classList.add('hidden');
   overlay.classList.add('hidden');
+  body.classList.remove('noOverflow');
 };
 // click to open the modal
 for (let i = 0; i < btnOpenModal.length; i++) {

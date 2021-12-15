@@ -6,7 +6,7 @@ console.log('hello world');
 
 var gCanvas;
 var gCtx;
-var gCurrMeme = getMeme();
+var gCurrMeme;
 
 ///// Functions //////
 

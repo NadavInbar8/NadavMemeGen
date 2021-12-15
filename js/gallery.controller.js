@@ -6,18 +6,16 @@ function onGalleryInit() {
 
 function renderGallery() {
   var elGallery = document.querySelector('.gallery');
-  elGallery.innerHTML += `
-  <div onclick="onImgSelect(1)"  class="img1">
-  <img src="./meme-imgs/1.jpg" alt="" />
-  </div>
-  <div onclick="onImgSelect(2)" class="img2">
-  <img src="meme-imgs/2.jpg" alt="" />
-  </div>
-  `;
+  var strHTML = '';
+  for (var i = 1; i < 19; i++) {
+    strHTML += ` <div class="img img${i}"><img onclick="onImgSelect(${i})" src="./meme-imgs/${i}.jpg" alt=""/></div>`;
+  }
+  elGallery.innerHTML = strHTML;
 }
 
 function onImgSelect(imgId) {
   openModal();
+  getCurrMemeId(imgId);
   setImg(imgId);
   renderMeme();
 }

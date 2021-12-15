@@ -12,6 +12,8 @@ body {
 
 img {
   height: 250px;
+  border-radius: 8px;
+  margin: 4px;
 }
 
 canvas {
@@ -36,6 +38,10 @@ ul {
 
 .hidden {
   display: none;
+}
+
+.noOverflow {
+  overflow: hidden;
 }
 
 /* Class */
@@ -82,6 +88,11 @@ ul {
   background-color: indigo;
 }
 
+.gallery {
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
 /* /////////////// GRID ///////////////// */
 .container {
   min-height: 100%;
@@ -115,6 +126,17 @@ ul {
 
 /* MODAL STUFF */
 
+.close-modal {
+  position: absolute;
+  top: 1.2rem;
+  right: 2rem;
+  font-size: 5rem;
+  color: #333;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
 .modal {
   position: absolute;
   top: 50%;
@@ -133,7 +155,7 @@ ul {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
+  width: 100vw;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.6);
   backdrop-filter: blur(3px);
