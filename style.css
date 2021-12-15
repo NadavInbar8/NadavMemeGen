@@ -1,0 +1,28 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+/* HTML Elements */
+
+header {
+  background-color: aqua;
+}
+
+body {
+}
+
+footer {
+}
+
+/* Helpers */
+
+.flex {
+  display: flex;
+}
+
+/* Class */
+
+.main-page {
+  background-color: crimson;
+}
