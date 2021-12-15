@@ -17,6 +17,7 @@ function renderGallery() {
 }
 
 function onImgSelect(imgId) {
+  openModal();
   setImg(imgId);
   renderMeme();
 }

@@ -9,14 +9,26 @@
   </head>
   <body onload="onGalleryInit()">
     <div class="container">
-      <div class="header-title">Nadav's Meme Gen</div>
+      <div class="header-title flex">
+        <div class="logo flex">
+          <img class="logoPic" src="./assets/LOGO.png" />
+        </div>
+        <div class="pages flex">
+          <ul class="flex">
+            <li class="flex"><a href="#">Memes</a></li>
+            <li class="flex"><a href="#">Gallery</a></li>
+            <li class="flex"><a href="#">About</a></li>
+          </ul>
+        </div>
+      </div>
       <div class="nav"></div>
 
       <div class="main-page">
         <div onload="onInitGal" class="gallery"></div>
       </div>
 
-      <div class="editor-modal">
+      <div class="editor modal hidden">
+        <button class="close-modal">&times;</button>
         <div class="canvas-container">
           <canvas id="my-canvas" height="450" width="450"></canvas>
         </div>
@@ -43,11 +55,13 @@
           <input type="button" value="switch" onclick="onSwitchLine()" />
         </div>
       </div>
+      <div class="overlay hidden"></div>
 
       <div class="footer"></div>
-      <script src="./js/gallery.controller.js"></script>
-      <script src="./js/meme.service.js"></script>
-      <script src="./js/meme.controller.js"></script>
     </div>
+    <script src="./js/modal.js"></script>
+    <script src="./js/meme.controller.js"></script>
+    <script src="./js/gallery.controller.js"></script>
+    <script src="./js/meme.service.js"></script>
   </body>
 </html>

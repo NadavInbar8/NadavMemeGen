@@ -84,3 +84,7 @@ function onSwitchLine() {
   switchLine();
   renderMeme();
 }
+
+function clearCanvas() {
+  gCtx.clearRect(0, 0, gCanvas.width, gCanvas.height);
+}
