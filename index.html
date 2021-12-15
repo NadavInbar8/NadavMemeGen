@@ -22,15 +22,25 @@
         </div>
 
         <div class="meme-inputs">
+          <input class="line" type="text" oninput="getInput()" />
           <input
-            class="line"
-            type="text"
-            oninput="getInput()"
-            placeholder="add text here"
+            type="color"
+            value="#FFFFFF"
+            class="textColor"
+            oninput="getColor()"
           />
-          <input type="color" />
-          <input type="button" value="increase" />
-          <input type="button" value="decrease" />
+          <input
+            type="button"
+            value="increase"
+            onclick="changeSize(this.value)"
+          />
+          <input
+            type="button"
+            value="decrease"
+            onclick="changeSize(this.value)"
+          />
+          <input type="button" value="create line" onclick="onCreateLine()" />
+          <input type="button" value="switch" onclick="onSwitchLine()" />
         </div>
       </div>
 
