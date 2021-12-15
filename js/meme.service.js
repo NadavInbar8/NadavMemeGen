@@ -30,7 +30,6 @@ function getMeme() {
   return gMeme;
 }
 
-function setLineTxt() {
-  gMeme.lines[0].txt = document.querySelector('.line').value;
-  renderMeme();
+function setLineTxt(text) {
+  gMeme.lines[0].txt = text;
 }

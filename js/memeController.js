@@ -6,20 +6,24 @@ console.log('hello world');
 
 var gCanvas;
 var gCtx;
-var gCurrMeme;
+var gCurrMeme = getMeme();
 
 ///// Functions //////
 
 function init() {
   gCanvas = document.querySelector('#my-canvas');
   gCtx = gCanvas.getContext('2d');
-  drawImgFromLocal('../meme-imgs/1.jpg');
   renderMeme();
 }
 
 function renderMeme() {
+  gCanvas = document.querySelector('#my-canvas');
+  gCtx = gCanvas.getContext('2d');
+  drawImgFromLocal(`../meme-imgs/${gCurrMeme.selectedImgId}.jpg`);
   gCurrMeme = getMeme();
-  renderText();
+  setTimeout(() => {
+    renderText();
+  }, 1);
 }
 
 function drawImgFromLocal(imgSrc) {
@@ -38,10 +42,6 @@ function drawText(txt, size, align, color) {
   gCtx.fillText(txt, 225, 50);
 }
 
-function clearCanvas() {
-  gCtx.clearRect(0, 0, gCanvas.width, gCanvas.height);
-}
-
 function renderText() {
   drawText(
     gCurrMeme.lines[0].txt,
@@ -49,4 +49,10 @@ function renderText() {
     gCurrMeme.lines[0].align,
     gCurrMeme.lines[0].color
   );
+}
+
+function getInput() {
+  var memeText = document.querySelector('.line').value;
+  setLineTxt(memeText);
+  renderMeme();
 }
