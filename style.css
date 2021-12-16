@@ -249,6 +249,9 @@ ul {
   border: none;
   background: none;
 }
+.close-modal:focus {
+  background-color: whitesmoke;
+}
 
 .modal {
   position: absolute;
