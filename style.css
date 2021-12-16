@@ -438,7 +438,7 @@ ul {
     right: -10px;
     top: -10px;
     flex-direction: column;
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: rgba(255, 255, 255);
     height: 101vh;
     border-inline-start: 1px solid #e5e5e5;
     width: 200px;
