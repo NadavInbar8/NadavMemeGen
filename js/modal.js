@@ -10,7 +10,7 @@ const body = document.querySelector('body');
 const openModal = () => {
   modal.classList.remove('hidden');
   overlay.classList.remove('hidden');
-  body.classList.add('noOverflow');
+  // body.classList.add('noOverflow');
 };
 const closeModal = () => {
   modal.classList.add('hidden');

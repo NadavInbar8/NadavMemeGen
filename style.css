@@ -417,7 +417,17 @@ ul {
 
 .btn-menu {
   display: none;
+  background-color: var(--cp-header);
+  border: none;
 }
+.btn-menu:hover,
+:focus {
+  background-color: #f1c071;
+}
+/* .burger {
+  height: 60px;
+  width: 60px;
+} */
 
 @media (max-width: 900px) {
   .btn-menu {
@@ -425,10 +435,11 @@ ul {
   }
   .header-title ul {
     position: fixed;
-    right: 0;
+    right: -10px;
+    top: -10px;
     flex-direction: column;
     background-color: rgba(255, 255, 255, 0.9);
-    height: 100vh;
+    height: 101vh;
     border-inline-start: 1px solid #e5e5e5;
     width: 200px;
     transform: translateX(100%);
