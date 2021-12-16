@@ -29,11 +29,12 @@ function drawImgFromLocal(imgSrc) {
   };
 }
 
-function drawText(txt, size, align, color, x, y) {
+function drawText(txt, size, align, color, borderColor, x, y) {
   gCtx.textBaseline = 'middle';
   gCtx.textAlign = align;
   gCtx.font = `${size}px Impact`;
   gCtx.fillStyle = color;
+  gCtx.strokeStyle = borderColor;
   gCtx.fillText(txt, x, y);
   gCtx.strokeText(txt, x, y);
 }
@@ -48,7 +49,28 @@ function drawRect(size, x, y) {
 
 function renderText() {
   gCurrMeme.lines.forEach((line) => {
-    drawText(line.txt, line.size, line.align, line.color, line.x, line.y);
+    switch (line.align) {
+      case 'left':
+        line.x = 0;
+        break;
+      case 'right':
+        line.x = gCanvas.width;
+
+        break;
+      case 'center':
+        line.x = gCanvas.width / 2;
+        break;
+    }
+    drawText(
+      line.txt,
+      line.size,
+      line.align,
+      line.color,
+      line.borderColor,
+      line.x,
+      line.y,
+      line.align
+    );
   });
   renderRect();
 }
@@ -75,6 +97,12 @@ function getColor() {
   renderMeme();
 }
 
+function getBorderColor() {
+  var memeColor = document.querySelector('.textBorderColor').value;
+  setMemeBorderColor(memeColor);
+  renderMeme();
+}
+
 function onCreateLine() {
   createLine();
   renderMeme();
@@ -87,4 +115,21 @@ function onSwitchLine() {
 
 function clearCanvas() {
   gCtx.clearRect(0, 0, gCanvas.width, gCanvas.height);
+}
+
+function OnSaveMeme() {
+  const data = gCanvas.toDataURL();
+  console.log(data);
+  var lines = gCurrMeme.lines;
+  var savedId = gCurrMeme.selectedImgId;
+  const obj = { id: savedId, lines: lines, url: data };
+  var savedMemes = loadFromStorage(STORAGE_KEY);
+  if (!savedMemes || savedMemes.length === 0) {
+    savedMemes = [];
+    savedMemes.push(obj);
+    saveToStorage(STORAGE_KEY, savedMemes);
+  } else {
+    savedMemes.push(obj);
+    saveToStorage(STORAGE_KEY, savedMemes);
+  }
 }

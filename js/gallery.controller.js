@@ -19,3 +19,10 @@ function onImgSelect(imgId) {
   setImg(imgId);
   renderMeme();
 }
+
+function galleryOpen() {
+  document.querySelector('.saved-memes').classList.add('hidden');
+  document.querySelector('.savedGallery').classList.add('hidden');
+
+  document.querySelector('.main-page').classList.remove('hidden');
+}

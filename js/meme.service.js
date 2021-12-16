@@ -7,68 +7,68 @@
 var gImgs = [
   {
     id: 1,
-    url: 'imgs/meme-imgs/1.jpg',
+    url: './meme-imgs/1.jpg',
     keywords: ['funny', 'awkward', 'celeb'],
   },
-  { id: 2, url: 'imgs/meme-imgs/2.jpg', keywords: ['animal', 'happy', 'love'] },
-  { id: 3, url: 'imgs/meme-imgs/3.jpg', keywords: ['baby', 'animal', 'sleep'] },
+  { id: 2, url: './meme-imgs/2.jpg', keywords: ['animal', 'happy', 'love'] },
+  { id: 3, url: './meme-imgs/3.jpg', keywords: ['baby', 'animal', 'sleep'] },
   {
     id: 4,
-    url: 'imgs/meme-imgs/4.jpg',
+    url: './meme-imgs/4.jpg',
     keywords: ['animal', 'sleep', 'funny'],
   },
   {
     id: 5,
-    url: 'imgs/meme-imgs/5.jpg',
+    url: './meme-imgs/5.jpg',
     keywords: ['success', 'baby', 'funny'],
   },
-  { id: 6, url: 'imgs/meme-imgs/6.jpg', keywords: ['funny', 'celeb', 'shock'] },
-  { id: 7, url: 'imgs/meme-imgs/7.jpg', keywords: ['funny', 'baby', 'shock'] },
+  { id: 6, url: './meme-imgs/6.jpg', keywords: ['funny', 'celeb', 'shock'] },
+  { id: 7, url: './meme-imgs/7.jpg', keywords: ['funny', 'baby', 'shock'] },
   {
     id: 8,
-    url: 'imgs/meme-imgs/8.jpg',
+    url: './meme-imgs/8.jpg',
     keywords: ['shock', 'celeb', 'awkward'],
   },
   {
     id: 9,
-    url: 'imgs/meme-imgs/9.jpg',
+    url: './meme-imgs/9.jpg',
     keywords: ['baby', 'funny', 'success'],
   },
   {
     id: 10,
-    url: 'imgs/meme-imgs/10.jpg',
+    url: './meme-imgs/10.jpg',
     keywords: ['celeb', 'funny', 'happy'],
   },
   {
     id: 11,
-    url: 'imgs/meme-imgs/11.jpg',
+    url: './meme-imgs/11.jpg',
     keywords: ['awkward', 'celeb', 'funny'],
   },
-  { id: 12, url: 'imgs/meme-imgs/12.jpg', keywords: ['shock', 'celeb', 'mad'] },
+  { id: 12, url: './meme-imgs/12.jpg', keywords: ['shock', 'celeb', 'mad'] },
   {
     id: 13,
-    url: 'imgs/meme-imgs/13.jpg',
+    url: './meme-imgs/13.jpg',
     keywords: ['success', 'celeb', 'happy'],
   },
-  { id: 14, url: 'imgs/meme-imgs/14.jpg', keywords: ['shock', 'celeb', 'mad'] },
+  { id: 14, url: './meme-imgs/14.jpg', keywords: ['shock', 'celeb', 'mad'] },
   {
     id: 15,
-    url: 'imgs/meme-imgs/15.jpg',
+    url: './meme-imgs/15.jpg',
     keywords: ['awkward', 'celeb', 'shock'],
   },
   {
     id: 16,
-    url: 'imgs/meme-imgs/16.jpg',
+    url: './meme-imgs/16.jpg',
     keywords: ['funny', 'shock', 'awkward'],
   },
   {
     id: 17,
-    url: 'imgs/meme-imgs/17.jpg',
+    url: './meme-imgs/17.jpg',
     keywords: ['celeb', 'mad', 'success'],
   },
   {
     id: 18,
-    url: 'imgs/meme-imgs/18.jpg',
+    url: './meme-imgs/18.jpg',
     keywords: ['shock', 'success', 'scared'],
   },
 ];
@@ -103,6 +103,7 @@ function createMeme() {
         size: 50,
         align: 'center',
         color: 'white',
+        borderColor: 'black',
         x: 225,
         y: 50,
         isFocused: true,
@@ -129,12 +130,32 @@ function setImg(imgId) {
 function setMemeColor(color) {
   gMeme.lines[gMeme.selectedLineIdx].color = color;
 }
+function setMemeBorderColor(color) {
+  gMeme.lines[gMeme.selectedLineIdx].borderColor = color;
+}
 
-function changeSize(val) {
-  val === 'increase'
+function changeSize(classlist) {
+  classlist.value === 'increase'
     ? (gMeme.lines[gMeme.selectedLineIdx].size += 10)
     : (gMeme.lines[gMeme.selectedLineIdx].size -= 10);
   renderMeme();
+}
+
+function changeAlign(classList) {
+  console.log(classList);
+  console.log(classList.value);
+  switch (classList.value) {
+    case 'align-left':
+      gMeme.lines[gMeme.selectedLineIdx].align = 'left';
+      break;
+    case 'align-center':
+      gMeme.lines[gMeme.selectedLineIdx].align = 'center';
+      break;
+    case 'align-right':
+      gMeme.lines[gMeme.selectedLineIdx].align = 'right';
+      break;
+  }
+  console.log(gMeme.lines[gMeme.selectedLineIdx]);
 }
 
 function createLine() {
