@@ -9,6 +9,8 @@
   </head>
   <body onload="onGalleryInit()" class="">
     <div class="main-screen" onclick="toggleMenu()"></div>
+    <div class="overlay hidden"></div>
+
     <div class="container">
       <div class="header-title flex">
         <div class="logo flex">
@@ -514,7 +516,6 @@
     </a>
 
     </div>
-    <div class="overlay hidden"></div>
     <script>
       function toggleMenu() {
           document.body.classList.toggle('menu-open');
