@@ -4,12 +4,14 @@ function onGalleryInit() {
   renderGallery();
 }
 
-function renderGallery() {
+function renderGallery(keyWord = 'all') {
   var elGallery = document.querySelector('.gallery');
   var strHTML = '';
-  for (var i = 1; i < gImgs.length; i++) {
-    strHTML += ` <div class="img img${i}"><img onclick="onImgSelect(${i})" src="./meme-imgs/${i}.jpg" alt=""/></div>`;
-  }
+  var sortedArr = onSortBy(keyWord);
+  sortedArr.forEach((memeImg) => {
+    strHTML += ` <div class="img img${memeImg.id}"><img onclick="onImgSelect(${memeImg.selectedImgId})" src="./meme-imgs/${memeImg.selectedImgId}.jpg"/></div>`;
+  });
+
   elGallery.innerHTML = strHTML;
 }
 
@@ -25,4 +27,9 @@ function galleryOpen() {
   document.querySelector('.savedGallery').classList.add('hidden');
 
   document.querySelector('.main-page').classList.remove('hidden');
+}
+
+function onSortBy(value) {
+  var arraySorted = sortBy(value);
+  return arraySorted;
 }

@@ -75,6 +75,7 @@ var gImgs = [
 var gCountImgId = 1;
 var gMemes = [];
 createMemes();
+getKeywords(gImgs);
 var gMeme = {};
 
 ///// Functions //////
@@ -109,6 +110,7 @@ function createMeme() {
         isFocused: true,
       },
     ],
+    keywords: [],
   };
 
   gCountImgId++;
@@ -117,6 +119,13 @@ function createMeme() {
 
 function getMeme() {
   return gMeme;
+}
+
+function getKeywords(imgArr) {
+  gMemes.forEach((meme, idx) => {
+    meme.keywords.push('all');
+    meme.keywords.push(...imgArr[idx].keywords);
+  });
 }
 
 function setLineTxt(text) {
@@ -142,8 +151,6 @@ function changeSize(classlist) {
 }
 
 function changeAlign(classList) {
-  console.log(classList);
-  console.log(classList.value);
   switch (classList.value) {
     case 'align-left':
       gMeme.lines[gMeme.selectedLineIdx].align = 'left';
@@ -155,7 +162,6 @@ function changeAlign(classList) {
       gMeme.lines[gMeme.selectedLineIdx].align = 'right';
       break;
   }
-  console.log(gMeme.lines[gMeme.selectedLineIdx]);
 }
 
 function createLine() {
@@ -180,4 +186,9 @@ function switchLine() {
   } else {
     gMeme.selectedLineIdx++;
   }
+}
+
+function sortBy(keyWord) {
+  var filteredMemes = gMemes.filter((meme) => meme.keywords.includes(keyWord));
+  return filteredMemes;
 }

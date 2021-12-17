@@ -39,10 +39,10 @@ function drawText(txt, size, align, color, borderColor, x, y) {
   gCtx.strokeText(txt, x, y);
 }
 
-function drawRect(size, x, y) {
+function drawRect(size, width, height, start, x) {
   gCtx.beginPath();
   gCtx.lineWidth = 3;
-  gCtx.rect(0, y - size / 2, gCanvas.width, size);
+  gCtx.rect(x - start, height - size / 2, width, size);
   gCtx.strokeStyle = 'black';
   gCtx.stroke();
 }
@@ -72,13 +72,22 @@ function renderText() {
       line.align
     );
   });
+
   renderRect();
 }
 
 function renderRect() {
   var selectedIdx = gCurrMeme.selectedLineIdx;
   var selectedLine = gCurrMeme.lines[selectedIdx];
-  drawRect(selectedLine.size, selectedLine.x, selectedLine.y);
+  var textWidth = gCtx.measureText(selectedLine.txt);
+
+  drawRect(
+    selectedLine.size,
+    textWidth.width,
+    selectedLine.y,
+    textWidth.actualBoundingBoxLeft,
+    selectedLine.x
+  );
 }
 
 function getInput() {
@@ -119,7 +128,6 @@ function clearCanvas() {
 
 function OnSaveMeme() {
   const data = gCanvas.toDataURL();
-  console.log(data);
   var lines = gCurrMeme.lines;
   var savedId = gCurrMeme.selectedImgId;
   const obj = { id: savedId, lines: lines, url: data };
@@ -132,4 +140,58 @@ function OnSaveMeme() {
     savedMemes.push(obj);
     saveToStorage(STORAGE_KEY, savedMemes);
   }
+}
+
+const download = () => {
+  clearCanvas();
+  renderMeme2();
+  setTimeout(() => {
+    var link = document.createElement('a');
+    link.download = 'meme.jpeg';
+    link.href = gCanvas.toDataURL();
+    link.click();
+  }, 1);
+};
+
+function clearCanvas() {
+  const context = gCanvas.getContext('2d');
+  context.clearRect(0, 0, gCanvas.width, gCanvas.height);
+}
+
+function renderMeme2() {
+  gCanvas = document.querySelector('#my-canvas');
+  gCtx = gCanvas.getContext('2d');
+  gCurrMeme = getMeme();
+  drawImgFromLocal(`./meme-imgs/${gCurrMeme.selectedImgId}.jpg`);
+  setTimeout(() => {
+    renderMemeForDownload(gMeme.selectedLineIdx);
+  }, 1);
+  updateInput();
+}
+
+function renderMemeForDownload() {
+  gCurrMeme.lines.forEach((line) => {
+    switch (line.align) {
+      case 'left':
+        line.x = 0;
+        break;
+      case 'right':
+        line.x = gCanvas.width;
+
+        break;
+      case 'center':
+        line.x = gCanvas.width / 2;
+        break;
+    }
+    drawText(
+      line.txt,
+      line.size,
+      line.align,
+      line.color,
+      line.borderColor,
+      line.x,
+      line.y,
+      line.align
+    );
+  });
 }
