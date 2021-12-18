@@ -485,7 +485,7 @@ ul {
     display: none;
   }
 }
-@media (max-width: 375px) {
+@media (max-width: 900px) {
   #my-canvas {
     width: 250px !important;
     height: 250px;
