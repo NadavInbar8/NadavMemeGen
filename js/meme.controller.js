@@ -127,19 +127,23 @@ function clearCanvas() {
 }
 
 function OnSaveMeme() {
-  const data = gCanvas.toDataURL();
-  var lines = gCurrMeme.lines;
-  var savedId = gCurrMeme.selectedImgId;
-  const obj = { id: savedId, lines: lines, url: data };
-  var savedMemes = loadFromStorage(STORAGE_KEY);
-  if (!savedMemes || savedMemes.length === 0) {
-    savedMemes = [];
-    savedMemes.push(obj);
-    saveToStorage(STORAGE_KEY, savedMemes);
-  } else {
-    savedMemes.push(obj);
-    saveToStorage(STORAGE_KEY, savedMemes);
-  }
+  clearCanvas();
+  renderMeme2();
+  setTimeout(() => {
+    const data = gCanvas.toDataURL();
+    var lines = gCurrMeme.lines;
+    var savedId = gCurrMeme.selectedImgId;
+    const obj = { id: savedId, lines: lines, url: data };
+    var savedMemes = loadFromStorage(STORAGE_KEY);
+    if (!savedMemes || savedMemes.length === 0) {
+      savedMemes = [];
+      savedMemes.push(obj);
+      saveToStorage(STORAGE_KEY, savedMemes);
+    } else {
+      savedMemes.push(obj);
+      saveToStorage(STORAGE_KEY, savedMemes);
+    }
+  }, 1);
 }
 
 const download = () => {
