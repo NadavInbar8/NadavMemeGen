@@ -13,6 +13,8 @@ const openModal = () => {
   // body.classList.add('noOverflow');
 };
 const closeModal = () => {
+  checkMobile();
+
   modal.classList.add('hidden');
   overlay.classList.add('hidden');
   body.classList.remove('noOverflow');
