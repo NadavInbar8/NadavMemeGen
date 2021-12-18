@@ -16,6 +16,8 @@ function renderGallery(keyWord = 'all') {
 }
 
 function onImgSelect(imgId) {
+  checkMobile();
+
   openModal();
   getCurrMemeId(imgId);
   setImg(imgId);
@@ -32,4 +34,23 @@ function galleryOpen() {
 function onSortBy(value) {
   var arraySorted = sortBy(value);
   return arraySorted;
+}
+
+function moreOptions() {
+  const categories = document.querySelector('.moreCate');
+  const more = document.querySelector('.more');
+  categories.classList.toggle('hidden');
+  more.classList.toggle('hidden');
+}
+
+function checkMobile() {
+  const body = document.querySelector('body');
+  const gallery = document.querySelector('.main-page');
+  console.log(body.offsetWidth);
+  // body.addEventListener('resize',()=>{
+
+  // })
+  if (body.offsetWidth < 1000) {
+    gallery.classList.toggle('hidden');
+  }
 }

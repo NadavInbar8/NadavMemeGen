@@ -43,6 +43,7 @@
         id="search-choice"
         />
         <datalist id="search-options">
+          <option value="all"></option>
           <option value="funny"></option>
           <option value="awkward"></option>
           <option value="celeb"></option>
@@ -54,6 +55,27 @@
           <option value="shock"></option>
           <option value="success"></option>
         </datalist>
+
+        <div class="categories flex">
+          <ul class="flex">
+            <li onclick="renderGallery('all')">All</li>
+            <li onclick="renderGallery('funny')"> Funny </li>
+            <li  onclick="renderGallery('awkward')"> Awkward </li>
+            <li   onclick="renderGallery('celeb')"> Celeb </li>
+            <li   onclick="renderGallery('animal')"> Animal </li>
+            <li  onclick="renderGallery('happy')"> Happy </li>
+            <li class="more" onclick="moreOptions()"> More </li>
+          </ul>
+          <ul class="moreCate flex hidden">
+            <li  onclick="renderGallery('love')"> Love </li>
+            <li  onclick="renderGallery('baby')"> Baby </li>
+            <li  onclick="renderGallery('sleep')"> Sleep </li>
+            <li  onclick="renderGallery('shock')"> Shock </li>
+            <li  onclick="renderGallery('success')"> Success </li>
+            <li  onclick="moreOptions()"> Less </li>
+
+          </ul>
+        </div>
       </div>
 
       <div class="main-page">
@@ -481,6 +503,7 @@
                 />
               </svg>
             </div>
+            <div class= "stickers flex"></div>
             <button class="save" onclick="OnSaveMeme()">Save</button>
             <button class="download save" onclick="download()">Download</button>
           </div>
