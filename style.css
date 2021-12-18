@@ -485,7 +485,58 @@ ul {
     display: none;
   }
 }
+@media (max-width: 375px) {
+  #my-canvas {
+    width: 250px !important;
+    height: 250px;
+  }
+  .canvas-container {
+    width: 250px;
+  }
+  .modal {
+    width: 350px;
+    top: 50%;
+    padding: 4rem;
+  }
+  .close-modal {
+    top: 1rem;
+    right: 1rem;
+    padding: 0;
+    font-size: 4rem;
+  }
+  .modal-items {
+    justify-content: space-between;
+  }
+  .create,
+  .switch,
+  .textColor,
+  .textColorSVG,
+  .textBorderColor,
+  .textBorderColorSVG,
+  .increase,
+  .decrease,
+  .align-left,
+  .align-center,
+  .align-right,
+  .save,
+  .download {
+    height: 40px;
+  }
 
+  /*.modal {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -45%);
+  width: 90%;
+  height: 800px;
+  background-color: whitesmoke;
+  padding: 6rem;
+  border-radius: 5px;
+  box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
+  z-index: 10;
+}*/
+}
 .main-screen {
   position: fixed;
   z-index: 1;
