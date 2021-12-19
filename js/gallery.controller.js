@@ -46,10 +46,7 @@ function moreOptions() {
 function checkMobile() {
   const body = document.querySelector('body');
   const gallery = document.querySelector('.main-page');
-  console.log(body.offsetWidth);
-  // body.addEventListener('resize',()=>{
 
-  // })
   if (body.offsetWidth < 1000) {
     gallery.classList.toggle('hidden');
   }

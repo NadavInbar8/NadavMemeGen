@@ -151,7 +151,6 @@ function changeSize(classlist) {
 }
 
 function moveLine(classList) {
-  console.log(classList);
   switch (classList.value) {
     case 'move-up':
       gMeme.lines[gMeme.selectedLineIdx].y -= 10;
@@ -166,11 +165,9 @@ function moveLine(classList) {
       gMeme.lines[gMeme.selectedLineIdx].x -= 10;
       break;
   }
-  console.log(gMeme.lines[gMeme.selectedLineIdx].x);
 }
 
 function changeAlign(classList) {
-  console.log(classList.value);
   switch (classList.value) {
     case 'align-left':
       gMeme.lines[gMeme.selectedLineIdx].align = 'left';

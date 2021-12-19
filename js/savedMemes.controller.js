@@ -7,18 +7,16 @@ function onSavedInit() {
   var savedGalleyEl = document.querySelector('.savedGallery');
   var strHTML = '';
   gId = 0;
-  console.log(savedMemes);
   if (savedMemes.length === 0) {
     strHTML = `<p class="about">
     Make a meme and bookmark it, to show it here!
     </p>`;
-    console.log(strHTML);
   }
   for (let i = 0; i < savedMemes.length; i++) {
     strHTML += `<div class="img img${i}"> 
       <img src="${savedMemes[i].url}" />
       <div class= "saved-memes-options flex">
-            <img src="./assets/SVG's/down-arrow.png" class="download" onclick="download()" />
+            <img src="./assets/SVG's/download-arrow.svg" class="download" onclick="download()" />
             </div>
       </div>`;
   }
@@ -32,6 +30,6 @@ function savedMemesOpen() {
   document.querySelector('.search-container').classList.add('hidden');
   document.querySelector('.saved-memes').style.marginTop = '100px';
 
-  document.querySelector('body').classList.add('overflow-x-off');
+  // document.querySelector('body').classList.add('overflow-x-off');
   onSavedInit();
 }

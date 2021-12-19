@@ -17,7 +17,7 @@ const closeModal = () => {
 
   modal.classList.add('hidden');
   overlay.classList.add('hidden');
-  body.classList.remove('noOverflow');
+  // body.classList.remove('noOverflow');
 };
 // click to open the modal
 for (let i = 0; i < btnOpenModal.length; i++) {

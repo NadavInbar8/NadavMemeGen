@@ -22,11 +22,14 @@
   font-family: 'Bakbak One';
   background-color: var(--cp-bg);
 }
+html {
+  height: 100%;
+}
 
 body {
-  position: relative;
   margin: 0;
   height: 100%;
+  flex-direction: column;
 }
 
 img {
@@ -38,7 +41,6 @@ canvas {
   display: block;
   margin: 0 auto;
   /* outline: 1px solid black; */
-  background-color: #fff;
 }
 ul {
   list-style: none;
@@ -61,9 +63,9 @@ ul {
   display: none;
 }
 
-.noOverflow {
+/* .noOverflow {
   overflow: hidden;
-}
+} */
 
 /* Class */
 
@@ -78,18 +80,19 @@ ul {
   background-color: var(--cp-bg);
   align-items: center;
   justify-content: space-between;
+  padding: 20px;
 }
 
-#search-choice {
+.searchBar {
   text-align: center;
   border-radius: 16px;
   border: 1.5px solid rgb(146, 146, 146);
   font-family: cursive;
   letter-spacing: 0.5px;
-  height: 40%;
   width: 20%;
   min-width: 200px;
   margin-left: 50px;
+  height: 40px;
 }
 
 #search-choice::placeholder {
@@ -164,18 +167,13 @@ ul {
 }
 .main-page {
   background-color: var(--cp-bg);
-}
-
-.editor-modal {
-  background-color: lime;
+  height: 100%;
 }
 
 .footer {
   background-color: var(--cp-header);
-  position: relative;
-  padding: 0;
   height: 65px;
-  bottom: 0;
+  width: 100%;
   justify-content: center;
   align-items: center;
 }
@@ -194,6 +192,7 @@ ul {
   flex-wrap: wrap;
   justify-content: center;
   margin: 4px;
+  height: 100%;
 }
 
 .img {
@@ -256,9 +255,10 @@ ul {
   cursor: pointer;
   border: none;
   background: none;
+  background-color: var(--cp-bg);
 }
 .close-modal:focus {
-  background-color: whitesmoke;
+  background-color: var(--cp-bg);
 }
 
 .modal {
@@ -268,16 +268,13 @@ ul {
   transform: translate(-50%, -45%);
   width: 90%;
   height: 800px;
-  background-color: whitesmoke;
   padding: 4rem;
   border-radius: 5px;
   box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
   z-index: 10;
   align-items: center;
 }
-.modal > * {
-  background-color: whitesmoke;
-}
+
 .modal-items {
   width: 100%;
   padding: 0px 150px 0px 0px;
@@ -295,20 +292,22 @@ ul {
 
 .canvas-container {
   width: 66%;
-  background-color: whitesmoke;
+  background-color: var(--cp-bg);
 }
 
 .meme-inputs {
   margin: 8px;
   flex-direction: column;
   width: 33%;
-  background-color: whitesmoke;
+  background-color: var(--cp-bg);
+
   justify-content: center;
 }
 
 .meme-inputs > * {
   margin: 4px;
-  background-color: whitesmoke;
+  background-color: var(--cp-bg);
+
   flex-wrap: wrap;
   padding: 0;
 }
@@ -398,6 +397,7 @@ ul {
   display: flex;
   justify-content: center;
   width: 100%;
+  height: 100%;
 }
 .saved-memes-options {
   display: none;
@@ -420,9 +420,9 @@ ul {
   flex-wrap: wrap;
 }
 
-.overflow-x-off {
+/* .overflow-x-off {
   overflow-x: hidden;
-}
+} */
 .me {
   border-top: 1px solid rgb(241, 241, 241);
   background-color: var(--cp-footer);
@@ -451,6 +451,7 @@ ul {
   background-color: var(--cp-footer);
   color: var(--cp-highlight);
   letter-spacing: 2px;
+  width: 100%;
 }
 .about-info img {
   width: 150px;
@@ -470,20 +471,16 @@ ul {
   background-color: var(--cp-header);
   border: none;
 }
-.btn-menu:hover,
-:focus {
-  background-color: #f1c071;
-}
-/* .burger {
-  height: 60px;
-  width: 60px;
-} */
 
 @media (max-width: 900px) {
   .logoPic {
     height: 40px;
     padding: 0;
     margin: 0;
+  }
+  .footer {
+    position: relative;
+    bottom: 0px;
   }
 
   .logo {
