@@ -3,7 +3,7 @@
 :root {
   --cp-bg: #fef9ef;
   --cp-header: #ffcb77;
-  --cp-footer: #17c3b2;
+  --cp-footer: #fef9ef;
   --cp-highlight: #fe6d73;
   --cp-footer2: #227c9d;
 }
@@ -24,7 +24,6 @@
 }
 
 body {
-  height: 100vh;
   position: relative;
   margin: 0;
 }
@@ -70,6 +69,8 @@ ul {
 .header-title {
   background-color: var(--cp-header);
   justify-content: space-between;
+  min-height: 125px;
+  align-items: center;
 }
 
 .search-container {
@@ -98,6 +99,7 @@ ul {
   background-color: var(--cp-header);
   justify-content: center;
   align-items: center;
+  padding: 0px 50px;
 }
 
 .logoPic {
@@ -108,18 +110,20 @@ ul {
 .nav-container {
   color: var(--cp-bg);
   height: 95%;
-  padding: 0;
-  margin: 0;
+  padding: 0px 50px;
+  margin: 0px;
   background-color: var(--cp-header);
 }
-
-/* .nav-container li {
-  border-inline-end: 1px solid #222;
+.nav-container ul {
+  height: 125px;
+  margin: 0;
 }
 
-.nav-container li:first-child {
-  border-inline-start: 1px solid #222;
-} */
+.nav-container li {
+  padding: 0;
+  margin: 0;
+  height: 100%;
+}
 
 .nav-container a {
   width: 100px;
@@ -166,7 +170,7 @@ ul {
 }
 
 .footer {
-  background-color: var(--cp-footer2);
+  background-color: var(--cp-header);
   position: relative;
   padding: 0;
   height: 65px;
@@ -208,7 +212,7 @@ ul {
 }
 
 /* /////////////// GRID ///////////////// */
-.container {
+/* .container {
   position: relative;
   min-height: 90%;
   display: grid;
@@ -219,8 +223,8 @@ ul {
   grid-template-areas:
     'header-title header-title header-title'
     'nav nav nav'
-    'main-page main-page main-page';
-  /* 'footer footer footer'; */
+    'main-page main-page main-page'
+    'footer footer footer';
 }
 
 .header-title {
@@ -237,7 +241,7 @@ ul {
 
 .main-page {
   grid-area: main-page;
-}
+} */
 
 /* MODAL STUFF */
 
@@ -394,6 +398,7 @@ ul {
   overflow-x: hidden;
 }
 .me {
+  border-top: 1px solid rgb(241, 241, 241);
   background-color: var(--cp-footer);
   justify-content: center;
   align-items: center;
@@ -401,7 +406,7 @@ ul {
 
 .damm {
   background-color: var(--cp-footer);
-  color: var(--cp-bg);
+  color: var(--cp-highlight);
   letter-spacing: 2px;
 }
 .about-info {
@@ -415,8 +420,8 @@ ul {
   text-align: center;
 }
 .about-info img {
-  width: 400px;
-  height: 400px;
+  width: 150px;
+  height: 150px;
 }
 .someinputs {
   justify-content: center;
@@ -441,13 +446,26 @@ ul {
 } */
 
 @media (max-width: 900px) {
+  .logoPic {
+    height: 40px;
+    padding: 0;
+    margin: 0;
+  }
+
+  .logo {
+    padding: 0;
+  }
   .btn-menu {
     display: block;
   }
+  .header-title {
+    width: 100vw;
+    justify-content: center;
+  }
   .header-title ul {
     position: fixed;
-    right: -10px;
-    top: -10px;
+    right: 0px;
+    top: 0px;
     flex-direction: column;
     background-color: rgba(255, 255, 255);
     height: 101vh;
@@ -459,6 +477,7 @@ ul {
   }
   .header-title li {
     margin: 5px;
+    height: auto;
   }
   .header-title li a {
     margin-bottom: 20px;
@@ -480,9 +499,6 @@ ul {
   .damm {
     margin-bottom: 10px;
   }
-}
-
-@media (max-width: 990px) {
   .modal-items {
     flex-direction: column;
     height: 100%;
@@ -490,6 +506,9 @@ ul {
   }
   .canvas-container {
     width: 100%;
+  }
+  .search-container {
+    padding: 20px 0px;
   }
   /* #my-canvas {
     height: 400px;
@@ -502,8 +521,13 @@ ul {
   .categories {
     display: none;
   }
-}
-@media (max-width: 900px) {
+  .nav-container a {
+    height: 50px;
+  }
+  .nav-container ul {
+    height: 100%;
+  }
+
   #my-canvas {
     width: 250px !important;
     height: 250px;
@@ -540,20 +564,6 @@ ul {
   .download {
     height: 40px;
   }
-
-  /*.modal {
-  position: absolute;
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%, -45%);
-  width: 90%;
-  height: 800px;
-  background-color: whitesmoke;
-  padding: 6rem;
-  border-radius: 5px;
-  box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
-  z-index: 10;
-}*/
 }
 .main-screen {
   position: fixed;

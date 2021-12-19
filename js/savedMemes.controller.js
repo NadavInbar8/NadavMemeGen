@@ -17,6 +17,8 @@ function savedMemesOpen() {
   document.querySelector('.main-page').classList.add('hidden');
   document.querySelector('.saved-memes').classList.remove('hidden');
   document.querySelector('.savedGallery').classList.remove('hidden');
+  document.querySelector('.search-container').classList.add('hidden');
+  document.querySelector('.saved-memes').style.marginTop = '100px';
 
   document.querySelector('body').classList.add('overflow-x-off');
   onSavedInit();
