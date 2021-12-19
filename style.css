@@ -26,6 +26,7 @@
 body {
   position: relative;
   margin: 0;
+  height: 100%;
 }
 
 img {
@@ -174,6 +175,7 @@ ul {
   position: relative;
   padding: 0;
   height: 65px;
+  bottom: 0;
   justify-content: center;
   align-items: center;
 }
@@ -249,7 +251,7 @@ ul {
   position: absolute;
   top: 1.2rem;
   right: 2rem;
-  font-size: 5rem;
+  font-size: 4rem;
   color: #333;
   cursor: pointer;
   border: none;
@@ -267,13 +269,18 @@ ul {
   width: 90%;
   height: 800px;
   background-color: whitesmoke;
-  padding: 6rem;
+  padding: 4rem;
   border-radius: 5px;
   box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
   z-index: 10;
+  align-items: center;
 }
 .modal > * {
   background-color: whitesmoke;
+}
+.modal-items {
+  width: 100%;
+  padding: 0px 150px 0px 0px;
 }
 .overlay {
   position: fixed;
@@ -284,12 +291,6 @@ ul {
   background-color: rgba(0, 0, 0, 0.6);
   backdrop-filter: blur(3px);
   z-index: 5;
-}
-
-.modal-items {
-  height: 100%;
-  justify-content: space-evenly;
-  align-items: center;
 }
 
 .canvas-container {
@@ -311,20 +312,37 @@ ul {
   flex-wrap: wrap;
   padding: 0;
 }
+.line-edit,
+.align-options,
+.saving-options,
+.line-div {
+  justify-content: center;
+  align-items: center;
+}
+/* .saving-options {
+  flex-direction: row;
+  width: 100%;
+} */
 
 .line {
   border-radius: 4px;
   min-height: 40px;
-  width: 100%;
+  height: 50px;
+  width: 60%;
   text-align: center;
   font-size: larger;
 }
 .create {
   height: 60px;
 }
-.increase,
+.delete {
+  height: 60px;
+}
+.increase {
+  height: 60px;
+}
 .decrease {
-  height: 70px;
+  height: 60px;
 }
 
 .switch {
@@ -367,25 +385,32 @@ ul {
 }
 
 .align-left {
-  width: 35px;
-  height: 35px;
-  margin: 10px;
+  height: 60px;
 }
 .align-center {
-  width: 35px;
-  height: 35px;
-  margin: 10px;
+  height: 60px;
 }
 .align-right {
-  width: 35px;
-  height: 35px;
-  margin: 10px;
+  height: 60px;
 }
 .saved-memes {
   display: flex;
   justify-content: center;
-  width: 90vw;
+  width: 100%;
 }
+.saved-memes-options {
+  display: none;
+  z-index: 1;
+  position: absolute;
+}
+
+.savedGallery .img:hover {
+  filter: grayscale(20%);
+}
+.savedGallery .img:hover .saved-memes-options {
+  display: block;
+}
+
 .savedGallery {
   background-color: var(--cp-bg);
   width: 100%;
@@ -404,20 +429,27 @@ ul {
   align-items: center;
 }
 
-.damm {
-  background-color: var(--cp-footer);
-  color: var(--cp-highlight);
-  letter-spacing: 2px;
+.name {
+  font-size: 2rem;
 }
+.title {
+  font-size: 1.5rem;
+}
+.about {
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+}
+
 .about-info {
   background-color: var(--cp-footer);
-
   font-family: 'Bakbak One';
-  font-size: 1.5rem;
   margin: 10px;
   flex-direction: column;
   align-items: center;
   text-align: center;
+  background-color: var(--cp-footer);
+  color: var(--cp-highlight);
+  letter-spacing: 2px;
 }
 .about-info img {
   width: 150px;
@@ -426,9 +458,10 @@ ul {
 .someinputs {
   justify-content: center;
 }
-.save {
+.save,
+.download {
   height: 60px;
-  width: 100px;
+  width: 60px;
 }
 
 .btn-menu {
@@ -496,13 +529,10 @@ ul {
     height: 200px;
     width: 200px;
   }
-  .damm {
-    margin-bottom: 10px;
-  }
   .modal-items {
     flex-direction: column;
     height: 100%;
-    justify-content: center;
+    padding: 0;
   }
   .canvas-container {
     width: 100%;
@@ -510,14 +540,18 @@ ul {
   .search-container {
     padding: 20px 0px;
   }
-  /* #my-canvas {
-    height: 400px;
-  } */
+
   .meme-inputs {
     flex-wrap: wrap;
     flex-direction: row;
     width: 100%;
+    height: 100%;
   }
+  .text-options,
+  .line-div {
+    width: 100%;
+  }
+
   .categories {
     display: none;
   }
@@ -546,11 +580,10 @@ ul {
     padding: 0;
     font-size: 4rem;
   }
-  .modal-items {
-    justify-content: space-between;
-  }
+
   .create,
   .switch,
+  .delete,
   .textColor,
   .textColorSVG,
   .textBorderColor,
@@ -563,6 +596,7 @@ ul {
   .save,
   .download {
     height: 40px;
+    width: 40px;
   }
 }
 .main-screen {

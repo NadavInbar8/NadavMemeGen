@@ -7,68 +7,68 @@
 var gImgs = [
   {
     id: 1,
-    url: './meme-imgs/1.jpg',
+    url: './imgs/1.jpg',
     keywords: ['funny', 'awkward', 'celeb'],
   },
-  { id: 2, url: './meme-imgs/2.jpg', keywords: ['animal', 'happy', 'love'] },
-  { id: 3, url: './meme-imgs/3.jpg', keywords: ['baby', 'animal', 'sleep'] },
+  { id: 2, url: './imgs/2.jpg', keywords: ['animal', 'happy', 'love'] },
+  { id: 3, url: './imgs/3.jpg', keywords: ['baby', 'animal', 'sleep'] },
   {
     id: 4,
-    url: './meme-imgs/4.jpg',
+    url: './imgs/4.jpg',
     keywords: ['animal', 'sleep', 'funny'],
   },
   {
     id: 5,
-    url: './meme-imgs/5.jpg',
+    url: './imgs/5.jpg',
     keywords: ['success', 'baby', 'funny'],
   },
-  { id: 6, url: './meme-imgs/6.jpg', keywords: ['funny', 'celeb', 'shock'] },
-  { id: 7, url: './meme-imgs/7.jpg', keywords: ['funny', 'baby', 'shock'] },
+  { id: 6, url: './imgs/6.jpg', keywords: ['funny', 'celeb', 'shock'] },
+  { id: 7, url: './imgs/7.jpg', keywords: ['funny', 'baby', 'shock'] },
   {
     id: 8,
-    url: './meme-imgs/8.jpg',
+    url: './imgs/8.jpg',
     keywords: ['shock', 'celeb', 'awkward'],
   },
   {
     id: 9,
-    url: './meme-imgs/9.jpg',
+    url: './imgs/9.jpg',
     keywords: ['baby', 'funny', 'success'],
   },
   {
     id: 10,
-    url: './meme-imgs/10.jpg',
+    url: './imgs/10.jpg',
     keywords: ['celeb', 'funny', 'happy'],
   },
   {
     id: 11,
-    url: './meme-imgs/11.jpg',
+    url: './imgs/11.jpg',
     keywords: ['awkward', 'celeb', 'funny'],
   },
-  { id: 12, url: './meme-imgs/12.jpg', keywords: ['shock', 'celeb', 'mad'] },
+  { id: 12, url: './imgs/12.jpg', keywords: ['shock', 'celeb', 'mad'] },
   {
     id: 13,
-    url: './meme-imgs/13.jpg',
+    url: './imgs/13.jpg',
     keywords: ['success', 'celeb', 'happy'],
   },
-  { id: 14, url: './meme-imgs/14.jpg', keywords: ['shock', 'celeb', 'mad'] },
+  { id: 14, url: './imgs/14.jpg', keywords: ['shock', 'celeb', 'mad'] },
   {
     id: 15,
-    url: './meme-imgs/15.jpg',
+    url: './imgs/15.jpg',
     keywords: ['awkward', 'celeb', 'shock'],
   },
   {
     id: 16,
-    url: './meme-imgs/16.jpg',
+    url: './imgs/16.jpg',
     keywords: ['funny', 'shock', 'awkward'],
   },
   {
     id: 17,
-    url: './meme-imgs/17.jpg',
+    url: './imgs/17.jpg',
     keywords: ['celeb', 'mad', 'success'],
   },
   {
     id: 18,
-    url: './meme-imgs/18.jpg',
+    url: './imgs/18.jpg',
     keywords: ['shock', 'success', 'scared'],
   },
 ];
@@ -152,7 +152,24 @@ function changeSize(classlist) {
 
 function changeAlign(classList) {
   switch (classList.value) {
-    case 'align-left':
+    case 'move-up':
+      gMeme.lines[gMeme.selectedLineIdx].y -= 10;
+      break;
+    case 'move-down':
+      gMeme.lines[gMeme.selectedLineIdx].align += 10;
+      break;
+    case 'move-right':
+      gMeme.lines[gMeme.selectedLineIdx].align += 10;
+      break;
+    case 'move-left':
+      gMeme.lines[gMeme.selectedLineIdx].align -= 10;
+      break;
+  }
+}
+
+function moveLine(classList) {
+  switch (classList.value) {
+    case 'move-up':
       gMeme.lines[gMeme.selectedLineIdx].align = 'left';
       break;
     case 'align-center':
@@ -186,6 +203,12 @@ function switchLine() {
   } else {
     gMeme.selectedLineIdx++;
   }
+}
+
+function deleteLine() {
+  var currLine = gMeme.selectedLineIdx;
+  gMeme.lines.splice(currLine, 1);
+  renderMeme();
 }
 
 function sortBy(keyWord) {

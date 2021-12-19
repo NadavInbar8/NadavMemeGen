@@ -9,7 +9,7 @@ function renderGallery(keyWord = 'all') {
   var strHTML = '';
   var sortedArr = onSortBy(keyWord);
   sortedArr.forEach((memeImg) => {
-    strHTML += ` <div class="img img${memeImg.id}"><img onclick="onImgSelect(${memeImg.selectedImgId})" src="./meme-imgs/${memeImg.selectedImgId}.jpg"/></div>`;
+    strHTML += ` <div class="img img${memeImg.id}"><img onclick="onImgSelect(${memeImg.selectedImgId})" src="./imgs/${memeImg.selectedImgId}.jpg"/></div>`;
   });
 
   elGallery.innerHTML = strHTML;

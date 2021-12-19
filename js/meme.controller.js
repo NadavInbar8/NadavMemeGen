@@ -14,7 +14,7 @@ function renderMeme() {
   gCanvas = document.querySelector('#my-canvas');
   gCtx = gCanvas.getContext('2d');
   gCurrMeme = getMeme();
-  drawImgFromLocal(`./meme-imgs/${gCurrMeme.selectedImgId}.jpg`);
+  drawImgFromLocal(`./imgs/${gCurrMeme.selectedImgId}.jpg`);
   setTimeout(() => {
     renderText(gMeme.selectedLineIdx);
   }, 1);
@@ -122,6 +122,11 @@ function onSwitchLine() {
   renderMeme();
 }
 
+function onDeleteLine() {
+  deleteLine();
+  renderMeme();
+}
+
 function clearCanvas() {
   gCtx.clearRect(0, 0, gCanvas.width, gCanvas.height);
 }
@@ -154,7 +159,7 @@ const download = () => {
     link.download = 'meme.jpeg';
     link.href = gCanvas.toDataURL();
     link.click();
-  }, 1);
+  }, 100);
 };
 
 function clearCanvas() {
@@ -166,7 +171,7 @@ function renderMeme2() {
   gCanvas = document.querySelector('#my-canvas');
   gCtx = gCanvas.getContext('2d');
   gCurrMeme = getMeme();
-  drawImgFromLocal(`./meme-imgs/${gCurrMeme.selectedImgId}.jpg`);
+  drawImgFromLocal(`./imgs/${gCurrMeme.selectedImgId}.jpg`);
   setTimeout(() => {
     renderMemeForDownload(gMeme.selectedLineIdx);
   }, 1);
