@@ -105,7 +105,7 @@ function createMeme() {
         align: 'center',
         color: 'white',
         borderColor: 'black',
-        x: 250,
+        x: 275,
         y: 50,
         isFocused: true,
       },

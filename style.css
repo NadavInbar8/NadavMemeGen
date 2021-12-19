@@ -601,7 +601,11 @@ ul {
   .align-center,
   .align-right,
   .save,
-  .download {
+  .download,
+  .move-up,
+  .move-down,
+  .move-left,
+  .move-right {
     height: 40px;
     width: 40px;
   }
