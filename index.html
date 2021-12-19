@@ -102,15 +102,26 @@
               <img src="./assets/SVG's/trash-can.svg" class="delete" onclick="onDeleteLine()">
               <img src="./assets/SVG's/loop.svg" class="switch"  onclick="onSwitchLine()">
             </div>  
+            <div class="line-move flex">
+              <img src="./assets/SVG's/left-arrow.svg" class="move-left"
+            value="left" onclick="onMoveLine(this.classList)" />
+              <img src="./assets/SVG's/up-arrow.svg" type="button" class="move-up"
+            value="up" onclick="onMoveLine(this.classList)" />
+              <img src="./assets/SVG's/down-arrow.svg" type="button" class="move-down"
+            value="down" onclick="onMoveLine(this.classList)" />
+              <img src="./assets/SVG's/right-arrow.svg" class="move-right"
+            value="right" onclick="onMoveLine(this.classList)" />
+
+            </div>
             <div class="color-options flex">
+              <img src="./assets/SVG's/fill.svg" class="textColorSVG" />
               <input
                 type="color"
                 value="#FFFFFF"
-                class="textColor"
+                class="textColor flex"
                 oninput="getColor()"
               />
-              <img src="./assets/SVG's/fill.svg" class="textColorSVG">
-              <img src="./assets/SVG's/text.svg" class="textBorderColorSVG" >
+              <img src="./assets/SVG's/text.svg" class="textBorderColorSVG" />
               <input
                 type="color"
                 value="#000000"
@@ -126,11 +137,11 @@
           </div>
           <div class="align-options flex">
             <img src="./assets/SVG's/left-align.svg" class="align-left"
-            onclick="changeAlign(this.classList)" />
+            onclick="onChangeAlign(this.classList)" />
             <img src="./assets/SVG's/center-align.svg" class="align-center"
-            onclick="changeAlign(this.classList)" />
+            onclick="onChangeAlign(this.classList)" />
             <img src="./assets/SVG's/right-align.svg" class="align-right"
-            onclick="changeAlign(this.classList)" />
+            onclick="onChangeAlign(this.classList)" />
           </div>
           <div class= "saving-options flex">
           <img src="./assets/SVG's/bookmark.png" class="save" onclick="OnSaveMeme()" />

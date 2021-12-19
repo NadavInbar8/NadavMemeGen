@@ -332,32 +332,33 @@ ul {
   text-align: center;
   font-size: larger;
 }
-.create {
-  height: 60px;
-}
-.delete {
-  height: 60px;
-}
-.increase {
-  height: 60px;
-}
-.decrease {
+.create,
+.delete,
+.increase,
+.decrease,
+.switch,
+.textColorSVG,
+.textBorderColorSVG,
+.move-up,
+.move-down,
+.move-left,
+.move-right {
   height: 60px;
 }
 
-.switch {
-  height: 60px;
-  width: 60px;
+.line-move {
+  justify-content: center;
 }
+
 .color-options {
   position: relative;
   justify-content: center;
 }
 
-.textColorSVG {
+/* .textColorSVG {
   width: 60px;
   height: 60px;
-}
+} */
 
 .textBorderColorSVG {
   width: 60px;
@@ -373,14 +374,14 @@ ul {
   opacity: 0;
   position: absolute;
   top: 0;
-  left: 70px;
+  left: 50%;
   height: 60px;
 }
 .textColor {
   opacity: 0;
   position: absolute;
   top: 0;
-  left: 0;
+  left: 35%;
   height: 60px;
 }
 

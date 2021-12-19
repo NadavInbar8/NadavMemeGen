@@ -49,18 +49,6 @@ function drawRect(size, width, height, start, x) {
 
 function renderText() {
   gCurrMeme.lines.forEach((line) => {
-    switch (line.align) {
-      case 'left':
-        line.x = 0;
-        break;
-      case 'right':
-        line.x = gCanvas.width;
-
-        break;
-      case 'center':
-        line.x = gCanvas.width / 2;
-        break;
-    }
     drawText(
       line.txt,
       line.size,
@@ -68,8 +56,7 @@ function renderText() {
       line.color,
       line.borderColor,
       line.x,
-      line.y,
-      line.align
+      line.y
     );
   });
 
@@ -124,6 +111,16 @@ function onSwitchLine() {
 
 function onDeleteLine() {
   deleteLine();
+  renderMeme();
+}
+
+function onMoveLine(classList) {
+  moveLine(classList);
+  renderMeme();
+}
+
+function onChangeAlign(classlist) {
+  changeAlign(classlist);
   renderMeme();
 }
 

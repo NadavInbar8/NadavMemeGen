@@ -105,7 +105,7 @@ function createMeme() {
         align: 'center',
         color: 'white',
         borderColor: 'black',
-        x: 225,
+        x: 250,
         y: 50,
         isFocused: true,
       },
@@ -150,26 +150,29 @@ function changeSize(classlist) {
   renderMeme();
 }
 
-function changeAlign(classList) {
+function moveLine(classList) {
+  console.log(classList);
   switch (classList.value) {
     case 'move-up':
       gMeme.lines[gMeme.selectedLineIdx].y -= 10;
       break;
     case 'move-down':
-      gMeme.lines[gMeme.selectedLineIdx].align += 10;
+      gMeme.lines[gMeme.selectedLineIdx].y += 10;
       break;
     case 'move-right':
-      gMeme.lines[gMeme.selectedLineIdx].align += 10;
+      gMeme.lines[gMeme.selectedLineIdx].x += 10;
       break;
     case 'move-left':
-      gMeme.lines[gMeme.selectedLineIdx].align -= 10;
+      gMeme.lines[gMeme.selectedLineIdx].x -= 10;
       break;
   }
+  console.log(gMeme.lines[gMeme.selectedLineIdx].x);
 }
 
-function moveLine(classList) {
+function changeAlign(classList) {
+  console.log(classList.value);
   switch (classList.value) {
-    case 'move-up':
+    case 'align-left':
       gMeme.lines[gMeme.selectedLineIdx].align = 'left';
       break;
     case 'align-center':
@@ -179,6 +182,7 @@ function moveLine(classList) {
       gMeme.lines[gMeme.selectedLineIdx].align = 'right';
       break;
   }
+  renderMeme();
 }
 
 function createLine() {
