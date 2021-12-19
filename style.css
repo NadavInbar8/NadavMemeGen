@@ -403,6 +403,14 @@ ul {
   display: none;
   z-index: 1;
   position: absolute;
+  border-radius: 8px;
+  height: 50%;
+  width: 50%;
+}
+.saved-memes-options .download {
+  position: relative;
+  margin: 0;
+  left: 25%;
 }
 
 .savedGallery .img:hover {
@@ -414,6 +422,7 @@ ul {
 
 .savedGallery {
   background-color: var(--cp-bg);
+  background-color: transparent;
   width: 100%;
   flex-direction: row;
   justify-content: center;

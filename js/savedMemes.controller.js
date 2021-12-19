@@ -13,12 +13,13 @@ function onSavedInit() {
     </p>`;
   }
   for (let i = 0; i < savedMemes.length; i++) {
-    strHTML += `<div class="img img${i}"> 
+    strHTML += `
+    <div class="img img${i}"> 
       <img src="${savedMemes[i].url}" />
       <div class= "saved-memes-options flex">
-            <img src="./assets/SVG's/download-arrow.svg" class="download" onclick="download()" />
-            </div>
-      </div>`;
+          <img src="./assets/SVG's/download-arrow.svg" class="download flex" onclick="download()" />
+      </div>
+    </div>`;
   }
   savedGalleyEl.innerHTML = strHTML;
 }
