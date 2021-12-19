@@ -343,7 +343,7 @@ ul {
 .move-down,
 .move-left,
 .move-right {
-  height: 60px;
+  height: 60px !important;
 }
 
 .line-move {
