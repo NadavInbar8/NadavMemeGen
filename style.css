@@ -488,8 +488,7 @@ ul {
     margin: 0;
   }
   .footer {
-    position: relative;
-    bottom: 0px;
+    display: none;
   }
 
   .logo {
@@ -608,6 +607,9 @@ ul {
   .move-right {
     height: 40px;
     width: 40px;
+  }
+  .me {
+    display: none;
   }
 }
 .main-screen {
